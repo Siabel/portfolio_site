@@ -8,7 +8,7 @@ export const projects = [
     github: 'https://github.com/nastorond/monee',
     notion: 'https://imaginary-editor-57f.notion.site/Monee-1ca842b2e8b18036b339e153f66ae425?source=copy_link',
 
-    thumbnail: '/images/monee.png',
+    thumbnail: 'Monee.png',
     shortDesc: '가계부 프로젝트', 
   },
   // {
@@ -30,8 +30,8 @@ export const projects = [
     category: 'Web',
     github: 'https://github.com/Siabel/algonion',
     notion: 'https://imaginary-editor-57f.notion.site/Algonion-6aa20dea7a7644998417a75cef492793?source=copy_link',
-    thumbnail: '/images/monee.png',
-    shortDesc: '가계부 프로젝트', 
+    thumbnail: 'Algonion.png',
+    shortDesc: '알고리즘 학습 프로젝트', 
   },
   {
     title: 'Socrates',
@@ -41,7 +41,7 @@ export const projects = [
     category: 'Web',
     github: 'https://github.com/Siabel/Socrates',
     notion: 'https://imaginary-editor-57f.notion.site/Socrates-4a27e47028c44efabab916466a4fca59?source=copy_link',
-    thumbnail: '/images/monee.png',
-    shortDesc: '가계부 프로젝트', 
+    thumbnail: 'Socrates.png',
+    shortDesc: '영화 추천 프로젝트', 
   },
 ]

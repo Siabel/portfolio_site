@@ -1,31 +1,30 @@
-'use client';
+'use client'
+
+import { motion } from 'framer-motion'
+import { IconType } from 'react-icons'
 
 interface LinkCardProps {
-  title: string;
-  description: string;
-  iconSrc: string;
-  href: string;
+  title: string
+  description: string
+  href: string
+  Icon: IconType
 }
 
-export default function LinkCard({ title, description, iconSrc, href }: LinkCardProps) {
+export default function LinkCard({ title, description, href, Icon }: LinkCardProps) {
   return (
-    <a
+    <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: 'spring', stiffness: 300 }}
       className="flex items-center gap-4 bg-white/5 p-6 rounded-xl shadow-md hover:shadow-xl transition w-full max-w-md"
     >
-      <img
-        src={iconSrc}
-        alt={`${title} 아이콘`}
-        width={40}
-        height={40}
-        className="rounded"
-      />
+      <Icon className="text-[var(--color-primary)]" size={40} />
       <div>
-        <h3 className="text-lg font-semibold text-yellow-400">{title}</h3>
+        <h3 className="text-lg font-semibold text-[var(--color-primary)]">{title}</h3>
         <p className="text-sm text-white">{description}</p>
       </div>
-    </a>
-  );
+    </motion.a>
+  )
 }

@@ -42,16 +42,21 @@ export default function Navbar() {
   }
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[9999] bg-background/90 backdrop-blur-md border-b border-neutral-800 shadow-md">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="text-xl font-bold text-primary">Siabel Portfolio</div>
+    <header className="fixed top-0 left-0 w-full z-[9999] bg-background/70 backdrop-blur-md border-b border-neutral-800 shadow-sm transition-all">
+      <nav className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+        <div
+          className="text-xl font-bold text-primary tracking-tight cursor-pointer"
+          onClick={() => window.location.href = '/'}
+        >
+          Siabel Portfolio
+        </div>
 
         <ul className="flex gap-6 list-none">
           {navItems.map((item) => (
             <li
               key={item.id}
               onClick={() => handleClick(item.id)}
-              className={`text-sm font-medium cursor-pointer transition ${
+              className={`cursor-pointer transition-colors duration-300 text-sm font-medium tracking-wide uppercase ${
                 activeId === item.id
                   ? 'text-primary underline underline-offset-4'
                   : 'text-white hover:text-primary'

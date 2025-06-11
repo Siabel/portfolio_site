@@ -13,23 +13,25 @@ interface Props {
   github: string
   notion: string
   thumbnail: string
-  shortDesc: string
 }
 
 export default function ProjectCardFlip(props: Props) {
   const [flipped, setFlipped] = useState(false)
 
   return (
-    <div className="relative w-full h-80 [perspective:1200px]" onClick={() => setFlipped(!flipped)}>
+    <div
+      className="relative w-full h-80 min-w-[300px] [perspective:1200px]"
+      onClick={() => setFlipped(!flipped)}
+    >
       <motion.div
         animate={{ rotateY: flipped ? 180 : 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative w-full h-full [transform-style:preserve-3d]"
+        transition={{ duration: 0.6 }}
+        className="w-1600px h-full [transform-style:preserve-3d]"
       >
-        <div className="absolute inset-0 backface-hidden">
+        <div className="absolute inset-0 backface-hidden w-full h-full">
           <ProjectCardFront {...props} />
         </div>
-        <div className="absolute inset-0 rotate-y-180 backface-hidden">
+        <div className="absolute inset-0 rotate-y-180 backface-hidden w-full h-full">
           <ProjectCardBack {...props} />
         </div>
       </motion.div>

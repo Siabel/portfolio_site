@@ -3,18 +3,34 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import SectionWrapper from '@/components/Common/SectionWrapper'
-import ProjectCardBack from './ProjectCardBack'
-import { projects } from '@/lib/projectData'
 import ProjectCardFlip from './ProjectCardFlip'
+import { projects } from '@/lib/projectData'
+import ProjectCardBack from './ProjectCardBack'
 
 const filterTags = ['React', 'Vue', 'Unity', 'Django']
 
 export default function ProjectsSection() {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null)
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  console.log('selectedTags:', selectedTags)
 
-  const filteredProjects = selectedTag
-    ? projects.filter((project) => project.tags.includes(selectedTag))
-    : projects
+  const toggleTag = (tag: string) => {
+    setSelectedTags((prev) => {
+      const newTags = prev.includes(tag)
+        ? prev.filter((t) => t !== tag)
+        : [...prev, tag]
+
+      console.log('selectedTags:', newTags)
+
+      return [...newTags]
+    })
+  }
+
+  const filteredProjects =
+    selectedTags.length === 0
+      ? projects
+      : projects.filter((project) =>
+          selectedTags.every((tag) => project.tags.includes(tag))
+        )
 
   const buttonClass = (active: boolean) =>
     `px-4 py-2 rounded-full border transition text-sm ${
@@ -37,16 +53,16 @@ export default function ProjectsSection() {
 
       <div className="text-center mb-10 flex flex-wrap gap-3 justify-center">
         <button
-          onClick={() => setSelectedTag(null)}
-          className={buttonClass(selectedTag === null)}
+          onClick={() => setSelectedTags([])}
+          className={buttonClass(selectedTags.length === 0)}
         >
           전체
         </button>
         {filterTags.map((tag) => (
           <button
             key={tag}
-            onClick={() => setSelectedTag(tag)}
-            className={buttonClass(selectedTag === tag)}
+            onClick={() => toggleTag(tag)}
+            className={buttonClass(selectedTags.includes(tag))}
           >
             {tag}
           </button>
@@ -76,7 +92,7 @@ export default function ProjectsSection() {
             }}
             transition={{ duration: 0.4 }}
           >
-            <ProjectCardBack {...project} />
+            <ProjectCardFlip {...project} />
           </motion.div>
         ))}
       </motion.div>

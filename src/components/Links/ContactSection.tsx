@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import SectionWrapper from '@/components/Common/SectionWrapper'
+import { motion } from 'framer-motion'
 
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
@@ -17,10 +18,10 @@ export default function ContactSection() {
 
     emailjs
       .sendForm(
-        'service_h2zi80e', // ← 본인의 service ID
-        'template_sewjztd', // ← 본인의 template ID
+        'service_h2zi80e', // service ID
+        'template_sewjztd', // template ID
         formRef.current,
-        'EQN7MMpR4TamZ_KiJ' // ← 본인의 public key
+        'EQN7MMpR4TamZ_KiJ' // public key
       )
       .then(
         () => {
@@ -36,19 +37,27 @@ export default function ContactSection() {
 
   return (
     <SectionWrapper id="contact">
-      <h2 className="text-3xl font-bold mb-6 text-[var(--color-primary)]">📮 Contact</h2>
+      <motion.h2
+        className="text-4xl font-bold mb-10 text-center text-[var(--color-primary)]"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        📮 Contact
+      </motion.h2>
 
       <form
         ref={formRef}
         onSubmit={sendEmail}
-        className="flex flex-col gap-4 w-full max-w-md"
+        className="flex flex-col gap-4 w-full max-w-md mx-auto"
       >
         <input
           type="text"
           name="name"
           placeholder="Your Name"
           required
-          className="p-3 bg-[#1e1e1e] border border-gray-700 rounded"
+          className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
         />
 
         <input
@@ -56,7 +65,7 @@ export default function ContactSection() {
           name="email"
           placeholder="Your Email"
           required
-          className="p-3 bg-[#1e1e1e] border border-gray-700 rounded"
+          className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
         />
 
         <input
@@ -64,7 +73,7 @@ export default function ContactSection() {
           name="title"
           placeholder="Title"
           required
-          className="p-3 bg-[#1e1e1e] border border-gray-700 rounded"
+          className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
         />
 
         <textarea
@@ -72,19 +81,27 @@ export default function ContactSection() {
           rows={6}
           placeholder="Your Message"
           required
-          className="p-3 bg-[#1e1e1e] border border-gray-700 rounded"
+          className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
         />
 
         <button
           type="submit"
           disabled={loading}
-          className="bg-[var(--color-primary)] text-black font-semibold py-3 px-6 rounded hover:opacity-90 transition"
+          className={`bg-[var(--color-primary)] text-black font-semibold py-3 px-6 rounded transition ${
+            loading ? 'opacity-60 cursor-not-allowed' : 'hover:opacity-90'
+          }`}
         >
           {loading ? 'Sending...' : 'Send'}
         </button>
 
         {sent && (
-          <p className="text-green-400 font-medium mt-2">Message sent successfully!</p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-green-400 font-medium mt-2 text-center"
+          >
+            Message sent successfully!
+          </motion.p>
         )}
       </form>
     </SectionWrapper>

@@ -1,4 +1,5 @@
 import '../app/globals.css'
+import TopBtn from '../components/Common/TopBtn'
 
 export const metadata = {
   title: 'Siabel Portfolio',
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {children}
       </body>
+      <TopBtn />
     </html>
   );
 }
