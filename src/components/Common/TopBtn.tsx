@@ -21,19 +21,21 @@ export default function TopBtn() {
   }
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.button
-          onClick={handleClick}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 z-50 bg-[var(--color-primary)] text-black p-3 rounded-full shadow-lg hover:shadow-xl transition hover:scale-105"
-        >
-          <ChevronUp size={20} />
-        </motion.button>
-      )}
-    </AnimatePresence>
+    <>
+      <AnimatePresence>
+        {visible && (
+          <motion.button
+            onClick={handleClick}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            transition={{ duration: 0.3 }}
+            className="fixed bottom-6 right-6 z-50 bg-[var(--color-primary)] text-black p-3 rounded-full shadow-lg hover:shadow-xl transition hover:scale-105"
+          >
+            <ChevronUp size={20} />
+          </motion.button>
+        )}
+      </AnimatePresence>
+    </>
   )
 }

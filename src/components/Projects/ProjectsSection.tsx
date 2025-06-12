@@ -11,16 +11,14 @@ const filterTags = ['React', 'Vue', 'Unity', 'Django']
 
 export default function ProjectsSection() {
   const [selectedTags, setSelectedTags] = useState<string[]>([])
-  console.log('selectedTags:', selectedTags)
+  // console.log('selectedTags:', selectedTags)
 
   const toggleTag = (tag: string) => {
     setSelectedTags((prev) => {
       const newTags = prev.includes(tag)
         ? prev.filter((t) => t !== tag)
         : [...prev, tag]
-
-      console.log('selectedTags:', newTags)
-
+      // console.log('selectedTags:', newTags)
       return [...newTags]
     })
   }
