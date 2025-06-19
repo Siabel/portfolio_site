@@ -34,8 +34,8 @@ function Particles() {
 
   useFrame(() => {
     if (!particlesRef.current) return
-    particlesRef.current.rotation.y += 0.0015
-    particlesRef.current.rotation.x += 0.001
+    particlesRef.current.rotation.y += 0.00015
+    particlesRef.current.rotation.x += 0.0001
   })
 
   return <points ref={particlesRef} geometry={geometry} material={material} />

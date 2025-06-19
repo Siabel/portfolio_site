@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import SectionWrapper from '@/components/Common/SectionWrapper'
 import ProjectCardFlip from './ProjectCardFlip'
 import { projects } from '@/lib/projectData'
@@ -19,6 +19,7 @@ export default function ProjectsSection() {
         ? prev.filter((t) => t !== tag)
         : [...prev, tag]
       // console.log('selectedTags:', newTags)
+
       return [...newTags]
     })
   }
@@ -81,18 +82,23 @@ export default function ProjectsSection() {
           },
         }}
       >
-        {filteredProjects.map((project) => (
-          <motion.div
-            key={project.title}
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.4 }}
-          >
-            <ProjectCardFlip {...project} />
-          </motion.div>
-        ))}
+        <AnimatePresence>
+          {filteredProjects.map((project) => (
+            <motion.div
+              key={project.title}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              <ProjectCardFlip {...project} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </motion.div>
     </SectionWrapper>
   )

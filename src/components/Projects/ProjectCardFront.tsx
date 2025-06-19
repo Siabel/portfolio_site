@@ -7,7 +7,7 @@ interface Props {
 
 export default function ProjectCardFront({ title, thumbnail }: Props) {
   return (
-    <div className="w-full h-full rounded-xl bg-white/10 backdrop-blur-md p-4 flex flex-col justify-between items-center justify-center shadow-md text-white">
+    <div className="w-full h-full rounded-xl bg-white/10 backdrop-blur-md p-4 flex flex-col items-center justify-center shadow-md text-white">
       <img
         src={`/project/${thumbnail}`}
         alt={title}
