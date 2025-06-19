@@ -5,7 +5,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import SectionWrapper from '@/components/Common/SectionWrapper'
 import ProjectCardFlip from './ProjectCardFlip'
 import { projects } from '@/lib/projectData'
-import ProjectCardBack from './ProjectCardBack'
 
 const filterTags = ['React', 'Vue', 'Unity', 'Django']
 

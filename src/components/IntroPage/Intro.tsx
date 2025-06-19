@@ -5,18 +5,6 @@ import { motion } from 'framer-motion'
 import Background from './Background'
 import Typewriter from './Typewriter'
 
-const buttonVariants = {
-  hover: {
-    scale: 1.05,
-    backgroundColor: 'var(--color-primary)',
-    color: 'var(--color-background)',
-    transition: {
-      type: 'spring',
-      damping: 12,
-    },
-  },
-}
-
 export default function Intro() {
   const handleScroll = () => {
     const next = document.getElementById('career')
