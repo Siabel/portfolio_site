@@ -18,7 +18,7 @@ export default function SectionWrapper({ children, id }: SectionWrapperProps) {
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
+        viewport={{ once: false, amount: 0.3 }}
         className="min-h-screen py-16 px-4 flex flex-col justify-center items-center"
       >
         {children}

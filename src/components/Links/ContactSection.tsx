@@ -3,12 +3,14 @@
 import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import SectionWrapper from '@/components/Common/SectionWrapper'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [toastOpen, setToastOpen] = useState(false)
+  const [toastMessage, setToastMessage] = useState('')
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault()
@@ -16,22 +18,29 @@ export default function ContactSection() {
 
     if (!formRef.current) return
 
-    emailjs.sendForm(
-      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-      formRef.current,
-      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
-    )
-      .then(
-        () => {
-          setSent(true)
-          setLoading(false)
-        },
-        (error) => {
-          console.error('이메일 전송 실패:', error)
-          setLoading(false)
-        }
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
+      .then(() => {
+        setSent(true)
+        setToastMessage('✉️ 메시지가 성공적으로 전송되었습니다!')
+        setToastOpen(true)
+        setTimeout(() => setToastOpen(false), 3000)
+      })
+      .catch((error) => {
+        console.error('이메일 전송 실패:', error)
+        setSent(false)
+        setToastMessage('❌ 메시지 전송에 실패했습니다. 잠시 후 다시 시도해주세요.')
+        setToastOpen(true)
+        setTimeout(() => setToastOpen(false), 3000)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }
 
   return (
@@ -92,17 +101,21 @@ export default function ContactSection() {
         >
           {loading ? 'Sending...' : 'Send'}
         </button>
-
-        {sent && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-green-400 font-medium mt-2 text-center"
-          >
-            Message sent successfully!
-          </motion.p>
-        )}
       </form>
+
+      <AnimatePresence>
+        {toastOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 40 }}
+            transition={{ duration: 0.4 }}
+            className="fixed bottom-6 right-6 bg-[var(--color-primary)] text-black px-6 py-3 rounded-xl shadow-lg z-[9999] font-medium"
+          >
+            {toastMessage}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </SectionWrapper>
   )
 }
