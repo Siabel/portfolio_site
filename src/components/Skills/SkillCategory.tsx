@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 interface SkillItemData {
   name: string
   color: string
+  description?: string
 }
 
 interface Props {
@@ -42,7 +43,11 @@ export default function SkillCategory({ category, items }: Props) {
             }}
             transition={{ duration: 0.4 }}
           >
-            <SkillItem name={item.name} color={item.color} />
+          <SkillItem
+            name={item.name}
+            color={item.color}
+            description={item.description}
+          />
           </motion.div>
         ))}
       </motion.ul>

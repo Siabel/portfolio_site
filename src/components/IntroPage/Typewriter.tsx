@@ -44,9 +44,9 @@ export default function MultiLineTypewriter({
   }, [charIndex, currentLine, lines, speed, delayBetween])
 
   return (
-    <div className="inline-block text-start" aria-live="polite">
+    <div className="inline-block text-center">
       {displayLines.map((line, i) => (
-        <div key={i}>{line}</div>
+        <div key={i} className="block w-full">{line}</div>
       ))}
     </div>
   )

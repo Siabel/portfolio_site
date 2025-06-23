@@ -11,7 +11,7 @@ export default function SkillsSection() {
         💻 Skills
       </h2>
 
-      <div className="max-w-4xl mx-auto space-y-10">
+      <div className="max-w-4xl space-y-10">
         {skillData.map(({ category, items }) => (
           <SkillCategory key={category} category={category} items={items} />
         ))}

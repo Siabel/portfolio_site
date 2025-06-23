@@ -43,7 +43,6 @@ export default function ProjectsSection() {
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
         className="text-4xl font-bold mb-12 text-center text-[var(--color-primary)]"
       >
         🚀 Projects

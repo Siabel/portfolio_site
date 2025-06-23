@@ -15,7 +15,7 @@ export default function Intro() {
     <SectionWrapper id="intro" className="relative">
       <Background />
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-3xl mx-auto px-4 gap-y-6">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 gap-y-6">
         <motion.span
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}

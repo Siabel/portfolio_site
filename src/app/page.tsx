@@ -1,5 +1,5 @@
 import CareerSection from '@/components/Career/CareerSection';
-import IntroHero from '@/components/IntroPage/Intro';
+import Intro from '@/components/IntroPage/Intro';
 import ContactSection from '@/components/Links/ContactSection';
 import LinksSection from '@/components/Links/LInksSection';
 import Navbar from '@/components/Navbar/Navbar';
@@ -11,7 +11,7 @@ export default function Home() {
     <>
     <Navbar/>
       <main>
-        <IntroHero />
+        <Intro />
         <CareerSection/>
         <SkillsSection/>
         <ProjectsSection/>
