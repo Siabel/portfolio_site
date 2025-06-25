@@ -13,6 +13,8 @@ interface Props {
   github: string
   notion: string
   thumbnail: string
+  description: string
+  readmeUrl: string
 }
 
 export default function ProjectCardFlip(props: Props) {
@@ -20,7 +22,7 @@ export default function ProjectCardFlip(props: Props) {
 
   return (
     <div
-      className="relative w-full h-80 min-w-[300px] [perspective:1200px]"
+      className="relative w-full h-[400px] min-w-[500px] [perspective:1200px]"
       onClick={() => setFlipped(!flipped)}
     >
       <motion.div

@@ -30,6 +30,7 @@ export default function ProjectCardBack({ title, duration, summary, tags, github
       <div className="flex gap-3 mt-4">
         <a
           href={github}
+          onClick={(e) => e.stopPropagation()}
           target="_blank"
           className="px-3 py-2 text-sm border border-[var(--color-primary)] rounded hover:bg-[var(--color-primary)] hover:text-black transition"
         >
@@ -37,6 +38,7 @@ export default function ProjectCardBack({ title, duration, summary, tags, github
         </a>
         <a
           href={notion}
+          onClick={(e) => e.stopPropagation()}
           target="_blank"
           className="px-3 py-2 text-sm border border-[var(--color-primary)] rounded hover:bg-[var(--color-primary)] hover:text-black transition"
         >
