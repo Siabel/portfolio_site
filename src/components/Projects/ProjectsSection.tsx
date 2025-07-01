@@ -39,14 +39,18 @@ export default function ProjectsSection() {
 
   return (
     <SectionWrapper id="projects">
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl font-bold mb-12 text-center text-[var(--color-primary)]"
+        className="mb-4 text-center"
       >
-        🚀 Projects
-      </motion.h2>
+        <h2 className="text-4xl font-bold text-[var(--color-primary)] mb-2">🚀 Projects</h2>
+      </motion.div>
+        <p className="text-sm text-gray-400 mb-5">
+          <span className="text-[var(--color-primary)] font-semibold"> 💡 카드를 클릭하면 더 많은 정보를 확인할 수 있어요!</span>
+        </p>
+
 
       <div className="text-center mb-10 flex flex-wrap gap-3 justify-center">
         <button

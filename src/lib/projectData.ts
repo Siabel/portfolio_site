@@ -40,7 +40,7 @@ export const projects = [
     category: 'Web',
     github: 'https://github.com/Siabel/algonion',
     readmeUrl: '/project/algonion/algonion.md',
-    images: ['algonion1.png', 'algonion2.png'],
+    images: ['algonion1.gif', 'algonion2.gif', 'algonion3.gif', 'algonion4.gif', 'algonion5.gif','algonion6.gif','algonion7.gif',],
 
     notion: 'https://imaginary-editor-57f.notion.site/Algonion-6aa20dea7a7644998417a75cef492793?source=copy_link',
     thumbnail: 'Algonion.png',

@@ -55,53 +55,72 @@ export default function ContactSection() {
         📮 Contact
       </motion.h2>
 
+        {/* 왼쪽 이미지 */}
+        <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto items-start">
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="w-full flex justify-center"
+          >
+            <img
+              src="/contact.png"
+              alt="Contact"
+              className="rounded-xl shadow-xl max-h-[600px] w-full object-contain"
+            />
+          </motion.div>
+
+
+        {/* 오른쪽 폼 영역 */}
       <form
-        ref={formRef}
-        onSubmit={sendEmail}
-        className="flex flex-col gap-4 w-full max-w-md mx-auto"
-      >
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
-          className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-        />
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          required
-          className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-        />
-
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          required
-          className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-        />
-
-        <textarea
-          name="message"
-          rows={6}
-          placeholder="Your Message"
-          required
-          className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
-        />
-
-        <button
-          type="submit"
-          disabled={loading}
-          className={`bg-[var(--color-primary)] text-black font-semibold py-3 px-6 rounded transition ${
-            loading ? 'opacity-60 cursor-not-allowed' : 'hover:opacity-90'
-          }`}
+          ref={formRef}
+          onSubmit={sendEmail}
+          className="flex flex-col gap-4 w-full max-w-md mx-auto"
         >
-          {loading ? 'Sending...' : 'Send'}
-        </button>
-      </form>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+            className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+          />
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            required
+            className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+          />
+
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            required
+            className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+          />
+
+          <textarea
+            name="message"
+            rows={6}
+            placeholder="Your Message"
+            required
+            className="p-3 bg-white/5 text-white placeholder-white/40 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={`bg-[var(--color-primary)] text-black font-semibold py-3 px-6 rounded transition ${
+              loading ? 'opacity-60 cursor-not-allowed' : 'hover:opacity-90'
+            }`}
+          >
+            {loading ? 'Sending...' : 'Send'}
+          </button>
+        </form>
+      </div>
 
       <AnimatePresence>
         {toastOpen && (

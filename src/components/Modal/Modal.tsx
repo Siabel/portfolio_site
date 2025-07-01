@@ -25,7 +25,7 @@ export default function Modal({
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm" />
         <Dialog.Content
           onClick={(e) => e.stopPropagation()}
-          className="fixed top-1/2 left-1/2 w-[90vw] max-w-2xl max-h-[80vh] overflow-auto -translate-x-1/2 -translate-y-1/2 z-50 bg-[#121212] p-6 rounded-xl shadow-xl text-white"
+          className="fixed top-1/2 left-1/2 w-[95vw] max-w-5xl max-h-[90vh] overflow-auto -translate-x-1/2 -translate-y-1/2 z-50 bg-[#121212] p-6 rounded-xl shadow-xl text-white"
         >
           <Dialog.Title className="sr-only">프로젝트 상세 보기</Dialog.Title>
           {children}

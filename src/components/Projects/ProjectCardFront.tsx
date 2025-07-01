@@ -8,12 +8,8 @@ interface Props {
   title: string
   duration: string
   summary: string
-  description: string
-  tags: string[]
-  github?: string
-  notion?: string
-  readmeUrl?: string
   thumbnail: string
+  readmeUrl?: string
   images?: string[]
 }
 
@@ -21,59 +17,39 @@ export default function ProjectCardFront({
   title,
   duration,
   summary,
-  description,
-  tags,
+  thumbnail,
   readmeUrl,
   images = [],
 }: Props) {
   return (
-    <div className="w-full h-full rounded-xl bg-white/10 backdrop-blur-md p-5 flex flex-col justify-between shadow-md text-white">
-      {/* 상단: 프로젝트 제목 */}
+    <div className="w-full h-full rounded-xl bg-white/10 backdrop-blur-md p-4 flex flex-col justify-between shadow-md text-white">
       <div>
-        <span className="inline-block bg-[var(--color-primary)] text-black text-sm px-4 py-1 rounded-full font-semibold mb-2">
-          {title}
-        </span>
+        {/* 상단: 제목 */}
+        <h3 className="text-xl font-bold text-[var(--color-primary)] mb-2">{title}</h3>
+        
+        <p className="text-xs text-gray-300 mb-2">{duration}</p>
 
-        <p className="text-sm text-gray-300">{duration}</p>
-        <hr className="my-2 border-white/20" />
+        <p className="text-sm text-gray-200 italic mb-3 line-clamp-2">{summary}</p>
 
-        {/* 요약 설명 */}
-        <p className="text-base font-bold text-white leading-relaxed whitespace-pre-line mb-4">
-          {summary}
-        </p>
-
-        {/* 주요 역할 설명 */}
-        <ul className="text-base text-gray-200 list-disc space-y-3 list-inside mb-4 whitespace-pre-line">
-          {description.split('\n').map((line, idx) => (
-            <li key={idx}>{line}</li>
-          ))}
-        </ul>
-
-        {/* 태그 */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-2 py-1 bg-yellow-100 text-black rounded shadow-sm"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        <img
+          src={`/project/${title}/${images?.[0] || thumbnail}`}
+          alt={`${title} 대표 이미지`}
+          className="rounded-md w-full h-55 object-cover mb-2"
+        />
       </div>
 
-      {/* 버튼 영역 */}
-        <div className="flex gap-3 mt-4">
-          {readmeUrl && (
-            <Modal triggerText="📄 README" preventFlip>
-              <ReadmeModal url={readmeUrl} />
-            </Modal>
-          )}
-            <Modal triggerText="🖼️ 이미지" preventFlip>
-              <ImageModal images={images} title={title}/>
-            </Modal>
-        </div>
-
+      <div className="flex gap-2 justify-start mt-auto">
+        {readmeUrl && (
+          <Modal triggerText="📄 README" preventFlip>
+            <ReadmeModal url={readmeUrl} />
+          </Modal>
+        )}
+        {images?.length > 0 && (
+          <Modal triggerText="🖼️ 이미지" preventFlip>
+            <ImageModal images={images} title={title} />
+          </Modal>
+        )}
+      </div>
     </div>
   )
 }
