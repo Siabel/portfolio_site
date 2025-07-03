@@ -11,6 +11,7 @@ interface Props {
   thumbnail: string
   readmeUrl?: string
   images?: string[]
+  imgDescriptions: string[]
 }
 
 export default function ProjectCardFront({
@@ -20,11 +21,12 @@ export default function ProjectCardFront({
   thumbnail,
   readmeUrl,
   images = [],
+  imgDescriptions
 }: Props) {
   return (
     <div className="w-full h-full rounded-xl bg-white/10 backdrop-blur-md p-4 flex flex-col justify-between shadow-md text-white">
       <div>
-        {/* 상단: 제목 */}
+        {/* 제목 */}
         <h3 className="text-xl font-bold text-[var(--color-primary)] mb-2">{title}</h3>
         
         <p className="text-xs text-gray-300 mb-2">{duration}</p>
@@ -46,7 +48,7 @@ export default function ProjectCardFront({
         )}
         {images?.length > 0 && (
           <Modal triggerText="🖼️ 이미지" preventFlip>
-            <ImageModal images={images} title={title} />
+            <ImageModal images={images} title={title} descriptions={imgDescriptions}/>
           </Modal>
         )}
       </div>

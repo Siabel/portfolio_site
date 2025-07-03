@@ -4,7 +4,7 @@ import React from 'react'
 
 interface Props {
   title: string
-  description: string
+  detail: string
   tags: string[]
   github?: string
   notion?: string
@@ -12,7 +12,7 @@ interface Props {
 
 export default function ProjectCardBack({
   title,
-  description,
+  detail,
   tags,
   github,
   notion,
@@ -28,13 +28,12 @@ export default function ProjectCardBack({
       <div className="flex-1 overflow-y-auto">
         <h4 className="text-lg font-semibold mb-4 text-white">✨ 구현한 주요 기능</h4>
         <ul className="list-disc list-inside space-y-3 text-[15px] text-gray-200 leading-relaxed whitespace-pre-line">
-          {description.split('\n').map((line, idx) => (
+          {detail.split('\n').map((line, idx) => (
             <li key={idx}>{line}</li>
           ))}
         </ul>
       </div>
 
-      {/* 하단 영역 */}
       <div className="mt-8">
         {/* 태그 */}
         <div className="flex flex-wrap gap-2 mb-6">
