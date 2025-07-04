@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
-  const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
   const [toastMessage, setToastMessage] = useState('')
@@ -26,14 +25,15 @@ export default function ContactSection() {
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       )
       .then(() => {
-        setSent(true)
+        console.log('PublicKey:', process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
+
         setToastMessage('✉️ 메시지가 성공적으로 전송되었습니다!')
         setToastOpen(true)
+        formRef.current?.reset()
         setTimeout(() => setToastOpen(false), 3000)
       })
       .catch((error) => {
         console.error('이메일 전송 실패:', error)
-        setSent(false)
         setToastMessage('❌ 메시지 전송에 실패했습니다. 잠시 후 다시 시도해주세요.')
         setToastOpen(true)
         setTimeout(() => setToastOpen(false), 3000)
@@ -44,13 +44,12 @@ export default function ContactSection() {
   }
 
   return (
-    <SectionWrapper id="contact">
+    <SectionWrapper id="contact">+
       <motion.h2
         className="text-4xl font-bold mb-10 text-center text-[var(--color-primary)]"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
       >
         📮 Contact
       </motion.h2>
