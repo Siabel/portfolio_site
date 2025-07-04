@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import SectionWrapper from '@/components/Common/SectionWrapper'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null)
@@ -63,10 +64,12 @@ export default function ContactSection() {
             viewport={{ once: true }}
             className="w-full flex justify-center"
           >
-            <img
+            <Image
               src="/contact.png"
               alt="Contact"
-              className="rounded-xl shadow-xl max-h-[600px] w-full object-contain"
+              width={400}
+              height={400}
+              className="rounded-xl shadow-xl object-contain w-full h-auto"
             />
           </motion.div>
 

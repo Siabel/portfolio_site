@@ -13,7 +13,8 @@ interface Props {
   github: string
   notion: string
   thumbnail: string
-  description: string
+  detail: string
+  imgDescriptions: string[]
   readmeUrl: string
 }
 
