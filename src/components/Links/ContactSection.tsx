@@ -11,7 +11,7 @@ export default function ContactSection() {
   const [loading, setLoading] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
   const [toastMessage, setToastMessage] = useState('')
-
+  const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'zeHqYM0lt7QtuFiuG'
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
@@ -22,8 +22,9 @@ export default function ContactSection() {
       .sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-        formRef.current,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        formRef.current!,
+        // process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        PUBLIC_KEY,
       )
       .then(() => {
         console.log('PublicKey:', process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
