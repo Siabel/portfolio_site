@@ -11,7 +11,6 @@ export default function ContactSection() {
   const [loading, setLoading] = useState(false)
   const [toastOpen, setToastOpen] = useState(false)
   const [toastMessage, setToastMessage] = useState('')
-  const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'zeHqYM0lt7QtuFiuG'
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
@@ -23,8 +22,7 @@ export default function ContactSection() {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         formRef.current!,
-        // process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
-        PUBLIC_KEY,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
       )
       .then(() => {
         console.log('PublicKey:', process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
@@ -56,7 +54,6 @@ export default function ContactSection() {
         📮 Contact
       </motion.h2>
 
-        {/* 왼쪽 이미지 */}
         <div className="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto items-start">
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -74,8 +71,6 @@ export default function ContactSection() {
             />
           </motion.div>
 
-
-        {/* 오른쪽 폼 영역 */}
       <form
           ref={formRef}
           onSubmit={sendEmail}
