@@ -29,7 +29,7 @@ export default function Modal({
         >
           <Dialog.Title className="sr-only">프로젝트 상세 보기</Dialog.Title>
           <Dialog.Description className="sr-only">
-            이 모달은 프로젝트의 이미지 슬라이드 또는 README 내용을 보여줍니다.
+            프로젝트의 이미지 슬라이드 또는 Summary 내용을 보여줍니다.
           </Dialog.Description>
           {children}
           <Dialog.Close className="absolute top-4 right-4 text-white text-xl hover:text-[var(--color-primary)] hover:cursor-pointer">

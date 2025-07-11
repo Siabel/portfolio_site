@@ -13,7 +13,12 @@ export const projects = [
     github: 'https://github.com/nastorond/monee',
     readmeUrl: '/project/monee/monee.md',
     images: ['monee (1).gif', 'monee (2).gif', 'monee (3).gif', 'monee (4).gif'],
-    imgDescriptions: ['문제 리스트 화면', '풀이 등록 페이지','3','3'],
+    imgDescriptions: [
+      '수입 / 지출 원형 그래프', 
+      '수입 / 지출 선형 그래프', 
+      '캘린더 월별 선택',
+      '캘린더 일별 선택'
+    ],
 
     notion: 'https://imaginary-editor-57f.notion.site/Monee-1ca842b2e8b18036b339e153f66ae425?source=copy_link',
     thumbnail: 'Monee.png',
@@ -32,7 +37,15 @@ export const projects = [
     github: 'https://github.com/Siabel/algonion',
     readmeUrl: '/project/algonion/algonion.md',
     images: ['algonion (1).gif', 'algonion (2).gif', 'algonion (3).gif', 'algonion (4).gif', 'algonion (5).gif','algonion (6).gif','algonion (7).gif',],
-    imgDescriptions: ['문제 리스트 화면', '풀이 등록 페이지','3','3','3','3','3'],
+    imgDescriptions: [
+      '메인 페이지 화면', 
+      '유저 검색',
+      '기본 프로필 페이지',
+      '코드로그 페이지',
+      '풀이 문제 상세 및 메모',
+      'Web RTC',
+      '풀이 문제 노션 내보내기'
+    ],
 
     notion: 'https://imaginary-editor-57f.notion.site/Algonion-6aa20dea7a7644998417a75cef492793?source=copy_link',
     thumbnail: 'Algonion.png',
@@ -50,8 +63,17 @@ export const projects = [
     category: 'Web',
     github: 'https://github.com/Siabel/Socrates',
     readmeUrl: '/project/socrates/socrates.md',
-    images: ['socrates (1).png', 'socrates (2).png', 'socrates (3).png', 'socrates (4).png', 'socrates (5).png', 'socrates (6).png', 'socrates (7).png'],
-    imgDescriptions: ['문제 리스트 화면', '풀이 등록 페이지','3','3','3','3','3'],
+    images: ['socrates (1).png', 'socrates (2).png', 'socrates (3).png', 'socrates (4).png', 'socrates (5).png', 'socrates (6).png', 'socrates (7).png', 'socrates (8).png'],
+    imgDescriptions: [
+      '메인 페이지 화면(비로그인)', 
+      '메인 페이지 화면(비로그인) - 2',
+      '회원가입 페이지',
+      '메인 페이지 화면(로그인)',
+      '영화 상세 페이지',
+      '영화 필터링 페이지',
+      '커뮤니티 페이지',
+      '영화 검색 페이지',
+    ],
 
     notion: 'https://imaginary-editor-57f.notion.site/Socrates-4a27e47028c44efabab916466a4fca59?source=copy_link',
     thumbnail: 'Socrates.png',

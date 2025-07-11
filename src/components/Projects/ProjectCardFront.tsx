@@ -1,7 +1,7 @@
 'use client'
 
 import Modal from '@/components/Modal/Modal'
-import ReadmeModal from '@/components/Modal/ReadmeModal'
+import ReadmeModal from '@/components/Modal/SummaryModal'
 import ImageModal from '@/components/Modal/ImageModal'
 
 interface Props {
@@ -42,12 +42,12 @@ export default function ProjectCardFront({
 
       <div className="flex gap-2 justify-start mt-auto">
         {readmeUrl && (
-          <Modal triggerText="📄 README" preventFlip>
+          <Modal triggerText="📄 SUMMARY" preventFlip>
             <ReadmeModal url={readmeUrl} />
           </Modal>
         )}
         {images?.length > 0 && (
-          <Modal triggerText="🖼️ 이미지" preventFlip>
+          <Modal triggerText="🖼️ IMAGE" preventFlip>
             <ImageModal images={images} title={title} descriptions={imgDescriptions}/>
           </Modal>
         )}
