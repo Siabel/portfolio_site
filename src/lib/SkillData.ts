@@ -108,35 +108,36 @@ export const skillData: SkillCategory[] = [
         color: '#F05032',
         description: 
           'GitHub / GitLab 기반의 브랜치 전략 운영 경험\n' +
-          'Monee, Socrates 프로젝트에서 팀 협업을 위한 PR 관리 및 이슈 분기 처리'
+          '팀 협업을 위한 PR 관리 및 이슈 분기 처리' +
+          'Git flow 전략을 이용한 버전 관리'
       },
       {
         name: 'Jira',
         color: '#0052CC',
         description: 
-          'Monee 프로젝트 일정/역할 분담에 활용\n' +
-          '칸반 보드를 통해 태스크 흐름 관리 및 회의 기록 연동'
+          '프로젝트 일정/역할 분담에 활용\n' +
+          '보드를 통해 태스크 흐름 관리 및 회의 기록 연동'
       },
       {
         name: 'Notion',
         color: '#000000',
         description: 
           '요구사항 정리, 명세서 작성, 회고 등 문서 작업에 사용\n' +
-          '스터디 및 협업 프로젝트에서 자료 공유 및 위키 구성 경험'
+          '스터디 및 협업 프로젝트에서 자료 공유 및 정리 경험'
       },
       {
         name: 'Mattermost',
         color: '#1362A3',
         description: 
           '팀 내 커뮤니케이션 및 회의 공유 플랫폼으로 활용\n' +
-          'Socrates, Algonion 협업 프로젝트에서 실시간 소통 기반으로 사용'
+          'Socrates, Algonion 프로젝트에서 실시간 소통 기반으로 사용'
       },
       {
         name: 'Figma',
         color: '#F24E1E',
         description: 
-          'Monee / 포트폴리오 디자인 시안 제작에 사용\n' +
-          '기획자와 디자인 협업, 컴포넌트 기반 UI 설계에 활용'
+          'Monee, 디자인 시안 제작에 사용\n' +
+          '컴포넌트 기반 UI 설계에 활용'
       }
     ]
   },
@@ -155,7 +156,7 @@ export const skillData: SkillCategory[] = [
         color: '#FF6D00',
         description: 
           'Next.js 개발 속도 향상을 위해 Turbopack 기반 빌드 구조 적용\n' +
-          'pages/app 병행 프로젝트에서 초기 로딩 개선에 기여'
+          'pages/app 병행 프로젝트에서 초기 로딩 개선'
       }
     ]
   }
