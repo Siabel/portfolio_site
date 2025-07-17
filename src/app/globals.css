@@ -19,3 +19,13 @@ body {
 .rotate-y-180 {
   transform: rotateY(180deg);
 }
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  font-size: revert;
+  font-weight: revert;
+}
+
+.prose ul, .prose ol {
+  list-style: revert;
+  margin-left: 1.25rem;
+}

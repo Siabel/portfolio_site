@@ -1,4 +1,4 @@
-import NetworkField from '@/components/Canvas/NetworkField';
+import Background from '@/components/Canvas/Background';
 import '../app/globals.css'
 import TopBtn from '../components/Common/TopBtn'
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
 
       <body>
-        <NetworkField/>
+        <Background/>
         {children}
         <TopBtn />
       </body>
