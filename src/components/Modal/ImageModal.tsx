@@ -22,6 +22,9 @@ export default function ImageModal({ title, images, descriptions }: ImageModalPr
         <Image
           src={`/project/${title}/${images[current]}`}
           alt={`slide-${current}`}
+          width={800}
+          height={500}
+          unoptimized
           className="rounded-md max-h-[70vh] object-contain"
         />
       </div>

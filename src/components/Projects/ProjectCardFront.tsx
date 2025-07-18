@@ -37,6 +37,9 @@ export default function ProjectCardFront({
         <Image
           src={`/project/${title}/${images?.[0] || thumbnail}`}
           alt={`${title} 대표 이미지`}
+          width={800}
+          height={220}
+          unoptimized
           className="rounded-md w-full h-55 object-cover mb-2"
         />
       </div>
