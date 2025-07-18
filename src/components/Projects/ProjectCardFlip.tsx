@@ -15,7 +15,7 @@ interface Props {
   thumbnail: string
   detail: string
   imgDescriptions: string[]
-  readmeUrl: string
+  summaryUrl: string
 }
 
 export default function ProjectCardFlip(props: Props) {

@@ -11,7 +11,7 @@ export const projects = [
     category: 'Web',
 
     github: 'https://github.com/nastorond/monee',
-    readmeUrl: '/project/monee/monee.md',
+    summaryUrl: '/project/monee/monee.md',
     images: ['monee (1).gif', 'monee (2).gif', 'monee (3).gif', 'monee (4).gif'],
     imgDescriptions: [
       '수입 / 지출 원형 그래프', 
@@ -35,7 +35,7 @@ export const projects = [
     tags: ['React', 'TypeScript', 'SCSS'],
     category: 'Web',
     github: 'https://github.com/Siabel/algonion',
-    readmeUrl: '/project/algonion/algonion.md',
+    summaryUrl: '/project/algonion/algonion.md',
     images: ['algonion (1).gif', 'algonion (2).gif', 'algonion (3).gif', 'algonion (4).gif', 'algonion (5).gif','algonion (6).gif','algonion (7).gif',],
     imgDescriptions: [
       '메인 페이지 화면', 
@@ -62,7 +62,7 @@ export const projects = [
     tags: ['Python', 'Django', 'Vue'],
     category: 'Web',
     github: 'https://github.com/Siabel/Socrates',
-    readmeUrl: '/project/socrates/socrates.md',
+    summaryUrl: '/project/socrates/socrates.md',
     images: ['socrates (1).png', 'socrates (2).png', 'socrates (3).png', 'socrates (4).png', 'socrates (5).png', 'socrates (6).png', 'socrates (7).png', 'socrates (8).png'],
     imgDescriptions: [
       '메인 페이지 화면(비로그인)', 
