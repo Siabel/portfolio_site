@@ -10,7 +10,7 @@ interface Props {
   duration: string
   summary: string
   thumbnail: string
-  readmeUrl?: string
+  summaryUrl?: string
   images?: string[]
   imgDescriptions: string[]
 }
@@ -20,7 +20,7 @@ export default function ProjectCardFront({
   duration,
   summary,
   thumbnail,
-  readmeUrl,
+  summaryUrl,
   images = [],
   imgDescriptions
 }: Props) {
@@ -42,9 +42,9 @@ export default function ProjectCardFront({
       </div>
 
       <div className="flex gap-2 justify-start mt-auto">
-        {readmeUrl && (
+        {summaryUrl && (
           <Modal triggerText="📄 SUMMARY" preventFlip>
-            <SummaryModal url={readmeUrl} />
+            <SummaryModal url={summaryUrl} />
           </Modal>
         )}
         {images?.length > 0 && (
