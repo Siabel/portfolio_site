@@ -3,6 +3,7 @@
 import Modal from '@/components/Modal/Modal'
 import SummaryModal from '@/components/Modal/SummaryModal'
 import ImageModal from '@/components/Modal/ImageModal'
+import Image from 'next/image'
 
 interface Props {
   title: string
@@ -33,7 +34,7 @@ export default function ProjectCardFront({
 
         <p className="text-sm text-gray-200 italic mb-3 line-clamp-2">{summary}</p>
 
-        <img
+        <Image
           src={`/project/${title}/${images?.[0] || thumbnail}`}
           alt={`${title} 대표 이미지`}
           className="rounded-md w-full h-55 object-cover mb-2"

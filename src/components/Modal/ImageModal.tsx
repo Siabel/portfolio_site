@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-
+import Image from 'next/image'
 interface ImageModalProps {
   title: string
   images: string[]
@@ -19,7 +19,7 @@ export default function ImageModal({ title, images, descriptions }: ImageModalPr
 
       {/* 이미지 영역 */}
       <div className="flex-1 flex items-center justify-center w-full">
-        <img
+        <Image
           src={`/project/${title}/${images[current]}`}
           alt={`slide-${current}`}
           className="rounded-md max-h-[70vh] object-contain"

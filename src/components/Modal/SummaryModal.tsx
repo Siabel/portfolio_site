@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import ReactMarkdown from 'react-markdown'
+import Markdown from 'markdown-to-jsx'
 
 interface SummaryModalProps {
   url: string
@@ -19,9 +19,9 @@ export default function SummaryModal({ url }: SummaryModalProps) {
 
   return (
     <div className="prose prose-invert max-w-none text-white text-sm leading-relaxed">
-      <ReactMarkdown>
+      <Markdown>
         {content}
-      </ReactMarkdown>
+      </Markdown>
     </div>
   )
 }
