@@ -20,12 +20,25 @@ body {
   transform: rotateY(180deg);
 }
 
-.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
-  font-size: revert;
-  font-weight: revert;
+/* 마크다운 커스터마이징 */
+.prose h1 {
+  @apply text-2xl text-[var(--color-primary)] font-bold mb-4;
 }
-
-.prose ul, .prose ol {
-  list-style: revert;
-  margin-left: 1.25rem;
+.prose h2 {
+  @apply text-xl text-[var(--color-primary)] font-bold mt-6 mb-2;
+}
+.prose h3 {
+  @apply text-lg text-[var(--color-primary)] mt-6 mb-2;
+}
+.prose p {
+  @apply text-sm text-gray-300 leading-relaxed;
+}
+.prose ul {
+  @apply list-disc ml-6 mb-4;
+}
+.prose li {
+  @apply text-sm text-gray-300 leading-relaxed;
+}
+.prose strong {
+  @apply text-white;
 }
