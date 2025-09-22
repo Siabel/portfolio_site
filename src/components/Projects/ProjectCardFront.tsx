@@ -11,6 +11,7 @@ interface Props {
   summary: string
   thumbnail: string
   summaryUrl?: string
+  deployUrl?: string
   images?: string[]
   imgDescriptions: string[]
 }
@@ -21,6 +22,7 @@ export default function ProjectCardFront({
   summary,
   thumbnail,
   summaryUrl,
+  deployUrl,
   images = [],
   imgDescriptions
 }: Props) {
@@ -54,6 +56,16 @@ export default function ProjectCardFront({
           <Modal triggerText="🖼️ IMAGE" preventFlip>
             <ImageModal images={images} title={title} descriptions={imgDescriptions}/>
           </Modal>
+        )}
+        {deployUrl && deployUrl.trim() !== '' && (
+          <a
+            href={deployUrl}
+            target="_blank"
+            onClick={(e) => e.stopPropagation()}
+            className="px-3 py-2 text-sm border border-[var(--color-primary)] rounded hover:bg-[var(--color-primary)] hover:text-black transition hover:cursor-pointer"
+          >
+            🚀 Live Demo
+          </a>
         )}
       </div>
     </div>

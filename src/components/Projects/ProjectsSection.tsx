@@ -1,34 +1,47 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionWrapper from '@/components/Common/SectionWrapper'
 import ProjectCardFlip from './ProjectCardFlip'
 import { projects } from '@/lib/projectData'
 
-const filterTags = ['React', 'Vue', 'Unity', 'Django']
+const filterTags = ['React', 'Vue', 'Unity',]
+const PAGE_SIZE = 4
 
 export default function ProjectsSection() {
   const [selectedTags, setSelectedTags] = useState<string[]>([])
-  // console.log('selectedTags:', selectedTags)
-
+  const [showMain, setShowMain] = useState<boolean>(false)
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  
   const toggleTag = (tag: string) => {
     setSelectedTags((prev) => {
       const newTags = prev.includes(tag)
         ? prev.filter((t) => t !== tag)
         : [...prev, tag]
-      // console.log('selectedTags:', newTags)
 
       return [...newTags]
     })
   }
 
-  const filteredProjects =
+  const byTag =
     selectedTags.length === 0
       ? projects
       : projects.filter((project) =>
           selectedTags.every((tag) => project.tags.includes(tag))
         )
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [selectedTags, showMain])
+
+  const filteredProjects = showMain
+    ? byTag.filter((p) => (p as any).importance === 'main')
+    : byTag
+
+  const totalPages = Math.max(1, Math.ceil(filteredProjects.length / PAGE_SIZE))
+  const start = (currentPage - 1) * PAGE_SIZE
+  const paginatedProjects = filteredProjects.slice(start, start + PAGE_SIZE)
 
   const buttonClass = (active: boolean) =>
     `px-4 py-2 rounded-full border transition text-sm ${
@@ -68,8 +81,24 @@ export default function ProjectsSection() {
             {tag}
           </button>
         ))}
+   
+        <button
+          type="button"
+          aria-pressed={showMain}
+          onClick={() => setShowMain((v) => !v)}
+          className={`relative inline-flex h-8 w-16 items-center rounded-full transition
+            ${showMain ? 'bg-[var(--color-primary)]' : 'bg-white/20'}`}
+          title={showMain ? '주 프로젝트만 보기' : '전체 보기'}
+        >
+          <span
+            className={`inline-block h-6 w-6 transform rounded-full bg-white transition
+              ${showMain ? 'translate-x-8' : 'translate-x-2'}`}
+          />
+          <span className="sr-only">주 프로젝트만 보기 토글</span>
+        </button>
+        <span className="text-sm text-gray-300">{showMain ? '주 프로젝트' : '전체'}</span>
       </div>
-
+      
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto"
         initial="hidden"
@@ -85,7 +114,7 @@ export default function ProjectsSection() {
         }}
       >
         <AnimatePresence>
-          {filteredProjects.map((project) => (
+          {paginatedProjects.map((project) => (
             <motion.div
               key={project.title}
               initial="hidden"
@@ -102,6 +131,38 @@ export default function ProjectsSection() {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      <div className="mt-8 flex items-center justify-center gap-2">
+        <button
+          onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+          disabled={currentPage === 1}
+          className="px-3 py-2 text-sm border border-white/30 rounded disabled:opacity-40 hover:bg-white/10"
+        >
+          ◀ Prev
+        </button>
+
+        {/* 페이지 인디케이터 */}
+        <div className="flex items-center gap-1">
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+            <button
+              key={p}
+              onClick={() => setCurrentPage(p)}
+              className={`h-8 w-8 rounded-full text-sm transition
+                ${p === currentPage ? 'bg-[var(--color-primary)] text-black' : 'border border-white/30 hover:bg-white/10'}`}
+            >
+              {p}
+            </button>
+          ))}
+        </div>
+
+        <button
+          onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+          disabled={currentPage === totalPages}
+          className="px-3 py-2 text-sm border border-white/30 rounded disabled:opacity-40 hover:bg-white/10"
+        >
+          Next ▶
+        </button>
+      </div>
     </SectionWrapper>
   )
 }

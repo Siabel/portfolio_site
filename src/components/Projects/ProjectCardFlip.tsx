@@ -23,7 +23,7 @@ export default function ProjectCardFlip(props: Props) {
 
   return (
     <div
-      className="relative w-full h-[400px] min-w-[500px] [perspective:1200px]"
+      className="relative h-[400px] min-w-[500px] [perspective:1000px]"
       onClick={() => setFlipped(!flipped)}
     >
       <motion.div
