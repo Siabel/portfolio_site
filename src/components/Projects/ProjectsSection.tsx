@@ -81,7 +81,9 @@ export default function ProjectsSection() {
             {tag}
           </button>
         ))}
-   
+        
+        <span className="text-sm text-gray-300">{showMain ? '전체 프로젝트 보기' : '주 프로젝트만 보기'}</span>
+
         <button
           type="button"
           aria-pressed={showMain}
@@ -96,7 +98,6 @@ export default function ProjectsSection() {
           />
           <span className="sr-only">주 프로젝트만 보기 토글</span>
         </button>
-        <span className="text-sm text-gray-300">{showMain ? '전체 프로젝트 보기' : '주 프로젝트만 보기'}</span>
       </div>
       
       <motion.div
