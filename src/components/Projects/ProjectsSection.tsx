@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import SectionWrapper from '@/components/Common/SectionWrapper'
 import ProjectCardFlip from './ProjectCardFlip'
-import { projects } from '@/lib/projectData'
+import { projects, Project } from '@/lib/projectData'
 
 const filterTags = ['React', 'Vue', 'Unity',]
 const PAGE_SIZE = 4
@@ -36,7 +36,7 @@ export default function ProjectsSection() {
   }, [selectedTags, showMain])
 
   const filteredProjects = showMain
-    ? byTag.filter((p) => (p as any).importance === 'main')
+    ? byTag.filter((p: Project) => p.importance === 'main')
     : byTag
 
   const totalPages = Math.max(1, Math.ceil(filteredProjects.length / PAGE_SIZE))

@@ -1,3 +1,22 @@
+export type ProjectImportance = 'main' | 'side'
+export interface Project {
+  title: string
+  duration: string
+  summary: string
+  detail: string
+  tags: string[]
+  category: string
+  importance?: ProjectImportance
+  github?: string
+  notion?: string
+  readmeUrl?: string
+  images?: string[]
+  imgDescriptions?: string[]
+  thumbnail: string
+  shortDesc?: string
+  deployUrl?: string
+}
+
 export const projects = [
   {
     title: 'Choi-choir Site',
@@ -10,7 +29,7 @@ export const projects = [
               자료/PDF 뷰 & 다운로드, 썸네일 리스트/디테일 네비게이션`,
     tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Firebase'],
     category: 'Web',
-    importance: 'main',
+    importance: 'main' as const,
     github: 'https://github.com/Siabel/choi-choir',
     summaryUrl: '/static/choi-choir.md',
     deployUrl: '',
@@ -51,6 +70,7 @@ export const projects = [
               재사용 가능한 SectionWrapper/ProjectCard 컴포넌트 설계`,
     tags: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
     category: 'Web',
+    importance: 'side' as const,
     github: 'https://github.com/Siabel/portfolio_site.git',
     deployUrl: '',
     summaryUrl: '',
@@ -86,7 +106,7 @@ export const projects = [
 
     tags: ['React', 'Redux', 'TypeScript', 'Next.js', 'Tailwind CSS'],
     category: 'Web',
-    importance: 'main',
+    importance: 'side' as const,
     github: 'https://github.com/nastorond/monee',
     summaryUrl: '/static/monee.md',
     deployUrl: '',
@@ -117,7 +137,7 @@ export const projects = [
             플레이어 설정(닉네임, 레벨, 해상도, 사운드, 민감도) 시스템 제작`,
     tags: ['Unity', 'C#'],
     category: 'Game',
-    importance: 'main',
+    importance: 'main' as const,
     github: 'https://github.com/Siabel/Four_Knights.git',
     summaryUrl: '/static/four-knights.md',
     images: [
@@ -158,7 +178,7 @@ export const projects = [
 
     tags: ['React', 'TypeScript', 'SCSS'],
     category: 'Web',
-    importance: 'main',
+    importance: 'main' as const,
     github: 'https://github.com/Siabel/algonion',
     summaryUrl: '/static/algonion.md',
     images: [
@@ -194,7 +214,7 @@ export const projects = [
 
     tags: ['Python', 'Django', 'Vue'],
     category: 'Web',
-    importance: 'main',
+    importance: 'main' as const,
     github: 'https://github.com/Siabel/Socrates',
     summaryUrl: '/static/socrates.md',
     images: [
